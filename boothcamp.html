@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Fest - Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grpa:hover, .grpb:hover {
+            background-color: #9be90b;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .bootcamp-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .bootcamp-header {
+            margin-top: 100px; /* Added to prevent overlap with navbar */
+            text-align: center;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar will be inserted here by your existing JavaScript -->
+
+    <nav class="navbar">
+        <div class="nav-logo">ICT FEST 2025</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="boothcamp.html">CP Bootcamp</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <!-- <li><a href="#">Contest</a></li> -->
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-menu" id="mobileMenuBtn">☰</div>
+    </nav>
+
+    <!-- title section start -->
+
+    <div class="bootcamp-header">
+        <h1><i class="fas fa-laptop-code"></i> CP Bootcamp Registration</h1>
+        <p>Join our Competitive Programming Bootcamp and enhance your problem-solving skills</p>
+    </div>
+
+    <!-- title section end -->
+
+    <!-- 2 group -->
+    <!-- grpa -->
+    <div class="grp-parent">
+        <div class="child-1">
+            <img src="/image/grp.jpg" alt="Group Icon">
+            <h2>Group: A</h2>
+            <h3>Venue: CP Lab</h3>
+            <h3>Registration Fee: 100</h3>
+  
+            <button class="grpa" onclick="window.open('https://forms.gle/eCKZx1KKqQCT7aUy9', '_blank')">
+                Registration now
+            </button>
+        </div>
+        <!-- grpb -->
+        <div class="child-2">
+            <img src="/image/grp.jpg" alt="Group Icon">
+            <h2>Group: B</h2>
+            <h3>Venue: C-Lab</h3>
+            <h3>Registration Fee: 100</h3>
+            <button class="grpb" onclick="window.open('https://forms.gle/MNTgRXZGYTvvdp9w7', '_blank')">
+                Registration now
+            </button>
+        </div>
+    </div>
+   
+    <a style="text-decoration: none;" href="b.html" class="bootcamp-link">
+        <button class="grpa">
+            <i class="fas fa-calendar-star"></i> About Last Bootcamp
+        </button>
+    </a>
+     <!-- Footer -->
+  <footer>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/siuictfest" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>Developed & Designed by <strong>Fuad Hasan,</strong><strong>Tarakur Rahman</strong></p>
+  
+  
+            <p>&copy; SIU ICT FEST 2025; All Rights Reserved.</p>
+         
+  
+  </footer>
+       
+    <script src="script.js"></script>
+</body>
+</html>

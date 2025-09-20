@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIU ICT Fest 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1a1a2e; /* Deep tech blue */
+            --secondary-color: #00d4ff; /* Neon cyan */
+            --accent-color: #ff2e63; /* Vibrant pink */
+            --light-color: #f0f4f8; /* Light background */
+            --dark-color: #16213e; /* Darker shade for contrast */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%); /* Tech gradient background */
+            color: #fff;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Background pattern for tech vibe */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+            z-index: -1;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--light-color);
+            transition: transform 0.3s;
+            z-index: 1001; /* Ensure button is above other elements */
+        }
+        
+        .mobile-menu:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+        
+        /* About Section Styles */
+        .about-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h1 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .about-header p {
+            font-size: 1.3rem;
+            color: var(--light-color);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .why-join, .event-highlights, .participate {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .why-join:hover, .event-highlights:hover, .participate:hover {
+            transform: translateY(-5px);
+        }
+        
+        .why-join {
+            grid-column: 1 / -1;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            transition: transform 0.3s;
+        }
+        
+        .section-title:hover i {
+            transform: rotate(360deg);
+        }
+        
+        .highlight-list {
+            list-style: none;
+            color: var(--light-color);
+        }
+        
+        .highlight-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        
+        .event-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .event-item:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateX(10px);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .event-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .event-item:hover .event-icon::before {
+            opacity: 1;
+        }
+        
+        .event-item h3 {
+            color: var(--light-color);
+            font-size: 1.2rem;
+        }
+        
+        .event-item p {
+            color: var(--light-color);
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-color), #ff6b6b);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(45deg, #c0392b, #ff8787);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 46, 99, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-icons {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-icons a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s;
+        }
+        
+        .footer-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        footer p {
+            color: var(--light-color);
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.5s;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                display: block !important; /* Force visibility in mobile view */
+                z-index: 1001 !important; /* Ensure button is above other elements */
+                position: relative; /* Ensure proper positioning */
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-header p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">ICT FEST 2025</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="bootcamp.html">CP Bootcamp</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-header">
+            <h1>About SIU ICT Fest 2025</h1>
+            <p>Calling all SIU students! Get ready for the most anticipated tech extravaganza of the year</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="why-join">
+                <h2 class="section-title"><i class="fas fa-question-circle"></i> Why Join?</h2>
+                <ul class="highlight-list">
+                    <li><strong>Compete</strong> in thrilling tech challenges and win exciting prizes</li>
+                    <li><strong>Learn</strong> from industry experts and faculty through workshops and seminars</li>
+                    <li><strong>Network</strong> with peers, professionals, and potential employers</li>
+                    <li><strong>Showcase</strong> your skills and projects to a wider audience</li>
+                    <li><strong>Have fun</strong> while expanding your knowledge and technical abilities</li>
+                </ul>
+            </div>
+            
+            <div class="event-highlights">
+                <h2 class="section-title"><i class="fas fa-calendar-star"></i> Event Highlights</h2>
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-code"></i></div>
+                    <div>
+                        <h3>Programming Contest</h3>
+                        <p>Code your way to victory in this intense competition</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div>
+                        <h3>Project Showcasing</h3>
+                        <p>Present your innovations to judges and visitors</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-question"></i></div>
+                    <div>
+                        <h3>ICT Quiz</h3>
+                        <p>Test your tech knowledge in teams</p>
+                    </div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-gamepad"></i></div>
+                    <div>
+                        <h3>Online Gaming</h3>
+                        <p>Battle it out in epic online matches</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-robot"></i></div>
+                    <div>
+                        <h3>Poster Presentation</h3>
+                        <p>Present your idea & win</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-icon"><i class="fas fa-briefcase"></i></div>
+                    <div>
+                        <h3>Career Talk</h3>
+                        <p>Get insider tips from tech leaders</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="participate">
+                <h2 class="section-title"><i class="fas fa-info-circle"></i> How to Participate?</h2>
+                <ul class="highlight-list">
+                    <li><strong>Register Now</strong>: Secure your spot early through our online portal</li>
+                    <li><strong>Venue</strong>: CP Lab, SIU</li>
+                    <li><strong>Dates</strong>: May 30–31, 2025</li>
+                    <li><strong>Fees</strong>: Vary by event (check individual event pages)</li>
+                    <li><strong>Deadline</strong>: Registration closes May 15, 2025</li>
+                </ul>
+                <a href="events.html" class="cta-button">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/siuictfest" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:cse@siu.edu.bd"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>Developed & Designed by <strong>Fuad Hasan,</strong><strong>Tarakur Rahman</strong></p>
+        <p>&copy; SIU ICT Fest 2025; All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Ensure mobile menu state is reset on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Reset menu state on page load
+            navLinks.classList.remove('active');
+            mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenu.style.display = 'block'; // Force visibility on page load
+            
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenu.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+                mobileMenu.style.display = 'block'; // Ensure button remains visible
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenu.style.display = 'block'; // Ensure button is visible after click
+                });
+            });
+            
+         
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

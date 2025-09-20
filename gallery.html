@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Fest - Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar will be inserted here by your existing JavaScript -->
+
+  <nav class="navbar">
+        <div class="nav-logo">ICT FEST 2025</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="events.html">Events</a></li>
+                  <li><a href="boothcamp.html">CP Bootcamp</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <!-- <li><a href="#">Contest</a></li> -->
+        
+              
+              <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+       
+        
+        <div class="mobile-menu" id="mobileMenuBtn">☰</div>
+    </nav>
+
+    <section class="gallery-section">
+        <div class="container">
+           
+            <p class="section-subtitle">Relive the memories from our past events</p>
+            
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="opening">Opening Ceremony</button>
+                <button class="filter-btn" data-filter="contest">Contests</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn" data-filter="award">Award Ceremony</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item contest">
+                    <img src="/image/programming_contest.jpg" alt="ICT Contest">
+                    <div class="gallery-overlay">
+                        <h3>Programming Contest</h3>
+                        <p>Participants solving complex algorithms</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item opening">
+                    <img src="/image/innus.jpg" alt="Opening Ceremony">
+                    <div class="gallery-overlay">
+                        <h3>Opening Ceremony</h3>
+                        <p>Chief guest VC sir & professor Abdullah selim sir has innugurated SIU ICT fest 2025</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item workshop">
+                    <img src="/image/career talk.jpg" alt="Workshop Session">
+                    <div class="gallery-overlay">
+                        <h3>Career talk</h3>
+                        <p>It's great session from the SIU alumni who operate a IT farm in Sylhet that is Authlab</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item award">
+                    <img src="/image/484509074_1057896239688718_6415784027072500924_n.jpg" alt="Award Ceremony">
+                    <div class="gallery-overlay">
+                        <h3>Prize giving Ceremony</h3>
+                        <p>VC sir sharing his speech for winners</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item contest">
+                    <img src="/image/award.jpg" alt="Hackathon">
+                    <div class="gallery-overlay">
+                        <h3>Prize giving Ceremony</h3>
+                        <p>Participant from Competitive programming receiving prize from VC sir, treasurer sir</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item workshop">
+                    <img src="/image/award3.jpg" alt="Robotics Workshop">
+                    <div class="gallery-overlay">
+                        <h3>Prize giving Ceremony</h3>
+                        <p>head of law department sharing his insights on the prize giving ceremony</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item opening">
+                    <img src="/image/headofdeptspeech.jpg" alt="Festival Stage">
+                    <div class="gallery-overlay">
+                        <h3>Speech from head of CSE</h3>
+                        <p>Head of department of CSE , sharing his insights on SIU ICT fest 2025</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item award">
+                    <img src="/image/awardtoguest.jpg" alt="Winners">
+                    <div class="gallery-overlay">
+                        <h3>Honouring guests by Head of CSE</h3>
+                        <p>Guest, Alumni who has great session on career talk</p>
+                        <a href="#" class="view-btn">View Full Image</a>
+                    </div>
+                </div>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Load more functionality (simplified example)
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    let currentItems = 8;
+    
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // In a real implementation, you would fetch more items from a server
+            // This is just a demonstration
+            const hiddenItems = document.querySelectorAll('.gallery-item[style="display: none"]');
+            
+            for (let i = 0; i < Math.min(4, hiddenItems.length); i++) {
+                hiddenItems[i].style.display = 'block';
+            }
+            
+            if (document.querySelectorAll('.gallery-item[style="display: none"]').length === 0) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+    }
+    
+    // Lightbox functionality would go here in a complete implementation
+});
+    </script>
+     <!-- Footer -->
+  <footer>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/siuictfest" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>Developed & Designed by <strong>Fuad Hasan,</strong><strong>Tarakur Rahman</strong></p>
+  
+  
+            <p>&copy; SIU ICT FEST 2025; All Rights Reserved.</p>
+         
+  
+  </footer>
+    
+  <script src="script.js"></script>
+</body>
+</html>
